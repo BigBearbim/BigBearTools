@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>BigBearToolAddin</Name>
+    <Assembly>C:\Program Files (x86)\BigBearTools\BigBearTools.dll</Assembly>
+    <ClientId>37853889-5d69-4816-8333-d2676b219e41</ClientId>
+    <FullClassName>BigBearTools.BigBearToolAddin</FullClassName>
+    <VendorId>ADSK</VendorId>
+    <VendorDescription>Autodesk, www.autodesk.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>

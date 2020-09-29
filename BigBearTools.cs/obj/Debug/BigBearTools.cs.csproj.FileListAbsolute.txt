@@ -1,0 +1,16 @@
+D:\BigBearTools\BigBearTools.cs\bin\Debug\Libs\Image\revit.png
+D:\BigBearTools\BigBearTools.cs\bin\Debug\BigBearTools.cs.dll
+D:\BigBearTools\BigBearTools.cs\bin\Debug\BigBearTools.cs.pdb
+D:\BigBearTools\BigBearTools.cs\bin\Debug\AdWindows.dll
+D:\BigBearTools\BigBearTools.cs\bin\Debug\Microsoft.Expression.Interactions.dll
+D:\BigBearTools\BigBearTools.cs\bin\Debug\Newtonsoft.Json.dll
+D:\BigBearTools\BigBearTools.cs\bin\Debug\RevitAPI.dll
+D:\BigBearTools\BigBearTools.cs\bin\Debug\RevitAPIUI.dll
+D:\BigBearTools\BigBearTools.cs\bin\Debug\System.Windows.Interactivity.dll
+D:\BigBearTools\BigBearTools.cs\bin\Debug\UIFramework.dll
+D:\BigBearTools\BigBearTools.cs\bin\Debug\UIFrameworkServices.dll
+D:\BigBearTools\BigBearTools.cs\obj\Debug\BigBearTools.cs.csprojAssemblyReference.cache
+D:\BigBearTools\BigBearTools.cs\obj\Debug\BigBearTools.cs.csproj.CoreCompileInputs.cache
+D:\BigBearTools\BigBearTools.cs\obj\Debug\BigBearTools.cs.csproj.CopyComplete
+D:\BigBearTools\BigBearTools.cs\obj\Debug\BigBearTools.cs.dll
+D:\BigBearTools\BigBearTools.cs\obj\Debug\BigBearTools.cs.pdb

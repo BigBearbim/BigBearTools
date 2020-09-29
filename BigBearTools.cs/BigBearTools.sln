@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigBearTools", "BigBearTools.csproj", "{3E8F2C2A-D8A7-4550-8D64-2F3961BA41DD}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "BigBearSetup", "..\BigBearSetup\BigBearSetup.vdproj", "{298F7939-806C-4D88-AFB8-2C01991ED4DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E8F2C2A-D8A7-4550-8D64-2F3961BA41DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E8F2C2A-D8A7-4550-8D64-2F3961BA41DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E8F2C2A-D8A7-4550-8D64-2F3961BA41DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E8F2C2A-D8A7-4550-8D64-2F3961BA41DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{298F7939-806C-4D88-AFB8-2C01991ED4DE}.Debug|Any CPU.ActiveCfg = Debug
+		{298F7939-806C-4D88-AFB8-2C01991ED4DE}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CBAAE81D-4126-41BC-AD66-BD52B764BFB7}
+	EndGlobalSection
+EndGlobal
