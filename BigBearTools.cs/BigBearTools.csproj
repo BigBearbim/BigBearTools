@@ -34,11 +34,29 @@
     <Reference Include="AdWindows">
       <HintPath>C:\Program Files (x86)\Autodesk\Revit 2020\AdWindows.dll</HintPath>
     </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>packages\Portable.BouncyCastle.1.8.6\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.2.0.246, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>packages\SharpZipLib.1.2.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Expression.Interactions">
       <HintPath>C:\Program Files (x86)\Autodesk\Revit 2020\Microsoft.Expression.Interactions.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>C:\Program Files (x86)\Autodesk\Revit 2020\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.5.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>packages\NPOI.2.5.1\lib\net45\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.5.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>packages\NPOI.2.5.1\lib\net45\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.5.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>packages\NPOI.2.5.1\lib\net45\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.5.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>packages\NPOI.2.5.1\lib\net45\NPOI.OpenXmlFormats.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -72,10 +90,27 @@
   <ItemGroup>
     <Compile Include="Command\About.cs" />
     <Compile Include="BigBearToolsRibbon\BigBearToolAddin.cs" />
+    <Compile Include="Command\CreateGrid\GridCreateCmd.cs" />
+    <Compile Include="Command\CreateGrid\ViewModel\GridCreateVM.cs" />
     <Compile Include="Command\RibbonPanelSwitch.cs" />
     <Compile Include="Command\UnifiedCoordinateCmd.cs" />
     <Compile Include="Command\InputCoordinate.cs" />
     <Compile Include="Command\UnifyCTSystem.cs" />
+    <Compile Include="Command\CutBuildingWallCmd.cs" />
+    <Compile Include="Data\GridInfo.cs" />
+    <Compile Include="Method\GridHandelMethod.cs" />
+    <Compile Include="Method\Helper.cs" />
+    <Compile Include="Method\UnderGroundMethod.cs" />
+    <Compile Include="Transaction\FailureHandler.cs" />
+    <Compile Include="Transaction\Transaction.cs" />
+    <Compile Include="Command\UnderGroundPipe\UndergroundPipeCmd.cs" />
+    <Compile Include="Command\UnderGroundPipe\View\UndergroundPipeWin.xaml.cs">
+      <DependentUpon>UndergroundPipeWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Command\UnderGroundPipe\Data\UnderGroundInfo.cs" />
+    <Compile Include="View\CutBuildingWallWin.xaml.cs">
+      <DependentUpon>CutBuildingWallWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Data\RibbonInfo.cs" />
     <Compile Include="Method\GeoEx.cs" />
     <Compile Include="Method\MEPMethod.cs" />
@@ -83,7 +118,7 @@
     <Compile Include="Method\ViewEx.cs" />
     <Compile Include="Command\Purgemd.cs" />
     <Compile Include="Command\Test.cs" />
-    <Compile Include="PipelineMarking.cs" />
+    <Compile Include="Command\PipelineMarking.cs" />
     <Compile Include="Progress\BaseCommon.cs" />
     <Compile Include="Progress\NotifyObject.cs" />
     <Compile Include="Progress\ProgressViewModel.cs" />
@@ -91,7 +126,10 @@
       <DependentUpon>ProgressWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Command\ReplaceComponent.cs" />
-    <Compile Include="SelectionFilterEx.cs" />
+    <Compile Include="Method\SelectionFilterEx.cs" />
+    <Compile Include="View\GridCreateWin.xaml.cs">
+      <DependentUpon>GridCreateWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ReplaceComponentWin.xaml.cs">
       <DependentUpon>ReplaceComponentWin.xaml</DependentUpon>
     </Compile>
@@ -109,6 +147,7 @@
     <Compile Include="View\UnifyMEPSystemWin.xaml.cs">
       <DependentUpon>UnifyMEPSystemWin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Method\WindowMethod.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Libs\Image\revit.png" />
@@ -121,13 +160,27 @@
     <Content Include="Libs\Image\坐标系统一.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Libs\Image\构件.png" />
     <Content Include="Libs\Image\熊.ico" />
     <Content Include="Libs\Image\统一桥架类型.png" />
+    <Content Include="Libs\Image\轴网.png" />
     <Content Include="Libs\Image\重叠.png" />
     <Content Include="Libs\Image\梁替换.png" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Command\UnderGroundPipe\View\UndergroundPipeWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CutBuildingWallWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Progress\ProgressWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\GridCreateWin.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -150,7 +203,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Libs\Family\公制常规注释.rfa" />
     <None Include="Libs\Family\点标记.rfa" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -174,5 +174,10 @@ namespace BigBearTools
             return UnitUtils.Convert(b, DisplayUnitType.DUT_SQUARE_METERS, DisplayUnitType.DUT_SQUARE_FEET);
         }
 
+        public static double MetersToFeet(this double b)
+        {
+            return UnitUtils.Convert(b, DisplayUnitType.DUT_METERS, DisplayUnitType.DUT_DECIMAL_FEET);
+        }
+
     }
 }

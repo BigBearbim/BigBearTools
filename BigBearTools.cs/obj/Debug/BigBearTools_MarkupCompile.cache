@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-52037941370
-8-1787934657
-291012891373
-22-2035467999
-Progress\ProgressWindow.xaml;View\ReplaceComponentWin.xaml;View\InputCoordinateWin.xaml;View\RibbonPanelSwitchWin.xaml;View\UnifyMEPSystemWin.xaml;
+8-1172023996
+101049333639
+44-1672626218
+2810759074
+Command\UnderGroundPipe\View\UndergroundPipeWin.xaml;View\CutBuildingWallWin.xaml;Progress\ProgressWindow.xaml;View\GridCreateWin.xaml;View\ReplaceComponentWin.xaml;View\InputCoordinateWin.xaml;View\RibbonPanelSwitchWin.xaml;View\UnifyMEPSystemWin.xaml;
 
 False
 

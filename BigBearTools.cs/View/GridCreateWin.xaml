@@ -1,0 +1,159 @@
+﻿<Window x:Class="BigBearTools.GridCreateWin"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BigBearTools"
+        xmlns:input="clr-namespace:System.Windows.Input;assembly=PresentationCore"
+             mc:Ignorable="d" 
+             Height="600" Width="650" ResizeMode="NoResize" >
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding TextChangeCom}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, Path=DataContext }"></i:InvokeCommandAction>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.7*"></RowDefinition>
+
+            <RowDefinition></RowDefinition>
+
+            <RowDefinition Height="0.3*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Name="PreView" Grid.Row="0" Grid.Column="0" Margin="5">
+
+        </Grid>
+        <GroupBox Grid.Row="0" Grid.Column="1" Margin="5" Header="常用值">
+            <ListBox Name="DepthValue" Margin="1,0,-1,0">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDoubleClick">
+                        <i:InvokeCommandAction Command="{Binding DoubleClickCom}" CommandParameter="{Binding ElementName=DepthValue,Path=SelectedItem}">
+                        </i:InvokeCommandAction>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ListBox>
+        </GroupBox>
+
+        <GroupBox Grid.Row="1" Grid.Column="0" Margin="5" Header="参数设置">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Margin="5,0,5,0">
+                    <TextBlock Text="轴网族类型：" Margin="0,0,5,0" Height="23" Width="73" HorizontalAlignment="Right" VerticalAlignment="Center" TextAlignment="Center" Padding="0,5,0,0"/>
+                    <ComboBox Name="GridFamilySymbol" Width="140" Height="23" Margin="-2,0,0,0" SelectedIndex="{Binding SelectionIndex,UpdateSourceTrigger=PropertyChanged}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding TextChangeCom}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, Path=DataContext }"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>
+                    <TextBlock Text="标签族类型：" Margin="10,0,5,0" Height="23" Width="73" HorizontalAlignment="Right" VerticalAlignment="Center" TextAlignment="Center" Padding="0,5,0,0"/>
+                    <ComboBox Name="DimensionFamilySymbol" Width="140" Height="23" Margin="-2,0,0,0" SelectedIndex="{Binding DimensionSelectionIndex,UpdateSourceTrigger=PropertyChanged}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding TextChangeCom}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, Path=DataContext }"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>
+                    
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Margin="5,0,5,0">
+                    <TextBlock Text="左进深：" Margin="0,0,5,0" Height="23" Width="44" HorizontalAlignment="Right" VerticalAlignment="Center" TextAlignment="Center" Padding="0,5,0,0"/>
+                    <TextBox Focusable="True" Name="LeftDepth" Margin="25,0,0,0" Height="23" Width="370" GotFocus="TextBox_GotFocus" Text="{Binding LeftDepth,UpdateSourceTrigger=PropertyChanged}"  input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="tb_PreviewTextInput">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="TextChanged">
+                                <i:InvokeCommandAction Command="{Binding TextChangeCom}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, Path=DataContext }"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Margin="5,0,5,0">
+                    <TextBlock Text="右进深：" Margin="0,0,5,0" Height="23" Width="44" HorizontalAlignment="Right" VerticalAlignment="Center" TextAlignment="Center" Padding="0,5,0,0"/>
+                    <TextBox Name="RightDepth" Margin="25,0,0,0" Height="23" Width="370" GotFocus="TextBox_GotFocus" Text="{Binding RightDepth,UpdateSourceTrigger=PropertyChanged}"  input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="tb_PreviewTextInput">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="TextChanged">
+                                <i:InvokeCommandAction Command="{Binding TextChangeCom}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, Path=DataContext }"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="0" Margin="5,0,5,0">
+                    <TextBlock Text="上进深：" Margin="0,0,5,0" Height="23" Width="44" HorizontalAlignment="Right" VerticalAlignment="Center" TextAlignment="Center" Padding="0,5,0,0"/>
+                    <TextBox Name="UpDepth" Margin="25,0,0,0" Height="23" Width="370" GotFocus="TextBox_GotFocus" Text="{Binding UpDepth,UpdateSourceTrigger=PropertyChanged}"  input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="tb_PreviewTextInput">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="TextChanged">
+                                <i:InvokeCommandAction Command="{Binding TextChangeCom}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, Path=DataContext }"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="0" Margin="5,0,5,0">
+                    <TextBlock Text="下进深：" Margin="0,0,5,0" Height="23" Width="44" HorizontalAlignment="Right" VerticalAlignment="Center" TextAlignment="Center" Padding="0,5,0,0"/>
+                    <TextBox Name="DownDepth" Margin="25,0,0,0" Height="23" Width="370" GotFocus="TextBox_GotFocus" Text="{Binding DownDepth,UpdateSourceTrigger=PropertyChanged}"  input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="tb_PreviewTextInput">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="TextChanged">
+                                <i:InvokeCommandAction Command="{Binding TextChangeCom}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, Path=DataContext }"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TextBox>
+                </StackPanel>
+
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Header="指定操作" Grid.Row="1" Grid.Column="1" Margin="5">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.7*"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Text="X轴:" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"></TextBlock>
+                <TextBlock Text="Y轴:"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Grid.Column="0" Grid.Row="1"></TextBlock>
+                <TextBox Name="XDirection" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="75" Height="23" Text="{Binding XValue,UpdateSourceTrigger=PropertyChanged}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding TextChangeCom}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, Path=DataContext }"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+                <TextBox Name="YDirection" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="75" Height="23" Text="{Binding YValue,UpdateSourceTrigger=PropertyChanged}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding TextChangeCom}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, Path=DataContext }"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+                <CheckBox Grid.Row="2" Grid.ColumnSpan="2" Name="RigthWithLeft" Content="左右联动"  Margin="10,0,10,0" VerticalAlignment="Center" HorizontalAlignment="Left"  IsChecked="{Binding LeftIsCheck,UpdateSourceTrigger=PropertyChanged}" Checked="RigthWithLeft_Checked" Click="RigthWithLeft_Click"/>
+                <CheckBox Grid.Row="3" Grid.ColumnSpan="2" Name="DownWithTop" Content="上下联动" IsChecked="{Binding UpIsCheck,UpdateSourceTrigger=PropertyChanged}" Margin="10,0,0,0" VerticalAlignment="Center" Checked="DownWithTop_Checked" Click="DownWithTop_Click"/>
+
+            </Grid>
+
+        </GroupBox>
+
+        <StackPanel Margin="10" Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Name="OkBtn" Content="确定" HorizontalAlignment="Left" Height="23" Width="75" Click="OkBtn_Click" IsDefault="True"/>
+            <Button Name="CancelBtn" IsCancel="True" Content="取消" HorizontalAlignment="Left" Height="23" Width="75" Margin="20,0,0,0" Click="CancelBtn_Click"/>
+        </StackPanel>
+
+
+    </Grid>
+</Window>
